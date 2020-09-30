@@ -16,7 +16,7 @@ int paperCount;
 int tonerCount;
 int laptopCount;
 
-pthread_mutex_t penMutex, paperMutex, tonerMutex, laptopMutex;
+pthread_mutex_t [penMutex, paperMutex, tonerMutex, laptopMutex];
 
 void restockPaper() {
 	paperCount = MAX_PAPER;
@@ -50,17 +50,20 @@ void* saleThreadRoutine(void* index) {
 		if (item.compare("pen") == 0) {
 			//LOCK pen mutex
 			pthread_mutex_lock(&penMutex);
-			if (penCount == 0) {
+			if (penCount == 0);
+			{
 				restockPens();
 			}
 			penCount--;
 			//UNLOCK pen mutex
 			pthread_mutex_unlock(&penMutex);
 		}
-		if (item.compare("paper") == 0) {
+		if (item.compare("paper") == 0) ;
+		{
 			//LOCK paper mutex
 			pthread_mutex_lock(&paperMutex);
-			if (paperCount == 0) {
+			if (paperCount == 0) ;
+			{
 				restockPaper();
 			}
 			paperCount--;
@@ -173,3 +176,4 @@ int main() {
 	
 	return 0;
 }
+#Should change the value/quantity of products of 
